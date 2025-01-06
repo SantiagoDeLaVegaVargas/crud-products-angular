@@ -12,7 +12,8 @@ export class AppComponent {
   title = 'crud_products';
 
   productArray: Product[] = [
-    {id: 1, nombre: "Arroz", precio: 2000, descripcion: "Una libra de arroz blanco"}
+    {id: 1, nombre: "Arroz", precio: 2000, descripcion: "Una libra de arroz blanco"},
+    {id: 2, nombre: "Chocolate", precio: 3000, descripcion: "Una libra de chocolate"}
   ];
 
   newProduct: Product = new Product(0, '', 0, '');
@@ -22,6 +23,7 @@ export class AppComponent {
       const newId = this.productArray.length ? this.productArray[this.productArray.length - 1].id + 1 : 1;
       this.newProduct.id = newId;
       this.productArray.push({...this.newProduct});
+       
     } else { // id !== 0 actualizar
       const index = this.productArray.findIndex(product => product.id === this.newProduct.id);
       if (index !== -1) {
